@@ -16,8 +16,8 @@ class MedianPolish:
 		""" Utility method for loading ndarray from .csv file""" 
 		try:
 			return np.genfromtxt(fname, delimiter=",")	
-		except Exception, e:
-			print "Error loading file %s:" % fname
+		except Exception as e:
+			print("Error loading file %s:" % fname)
 			raise
 
 	def median_polish(self, max_iterations=10, method='median'):
@@ -77,23 +77,22 @@ if __name__ == "__main__":
 	
 	mp = MedianPolish(arr) 
 	ge, ce, re , resid, tbl_org =  mp.median_polish(4) 
-	print "median polish:"
-	print "grand effect = ", ge
-	print "column effects = ", ce 
-	print "row effects = ", re 
-	print "-----Table of Residuals-------" 
-	print resid
-	print "-----Original Table-------"
-	print tbl_org
+	print("median polish:")
+	print("grand effect = ", ge)
+	print("column effects = ", ce) 
+	print("row effects = ", re )
+	print("-----Table of Residuals-------") 
+	print(resid)
+	print("-----Original Table-------")
+	print(tbl_org)
 
 	ge, ce, re , resid, tbl_org =  mp.median_polish(4 , "average")
-	print 
-	print "average polish:" 
-	print "grand effect = ", ge
-	print "column effects = ", ce 
-	print "row effects = ", re 
-	print "-----Table of Residuals-------" 
-	print resid
-	print "-----Original Table-------"
-	print tbl_org
+	print("average polish:" )
+	print("grand effect = ", ge)
+	print("column effects = ", ce )
+	print("row effects = ", re) 
+	print("-----Table of Residuals-------") 
+	print(resid)
+	print("-----Original Table-------")
+	print(tbl_org)
 
