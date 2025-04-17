@@ -35,25 +35,25 @@ class MedianPolish:
 
 		for i in range(max_iterations):
 			if method == 'median':
-				row_medians = np.median(self.tbl  ,1) 
+				row_medians = np.nanmedian(self.tbl  ,1) 
 				row_effects += row_medians
-				median_row_effects = np.median(row_effects)
-			elif method == 'average':
-				row_medians = np.average(self.tbl  ,1) 
-				row_effects += row_medians
-				median_row_effects = np.average(row_effects)
+				median_row_effects = np.nanmedian(row_effects)
+			#elif method == 'average':
+			#	row_medians = np.average(self.tbl  ,1) 
+			#	row_effects += row_medians
+			#	median_row_effects = np.average(row_effects)
 			grand_effect += median_row_effects
 			row_effects -= median_row_effects
 			self.tbl -= row_medians[:,np.newaxis] 
 
 			if method == 'median':
-				col_medians = np.median(self.tbl,0) 
+				col_medians = np.nanmedian(self.tbl,0) 
 				col_effects += col_medians
-				median_col_effects = np.median(col_effects)
-			elif method == 'average':
-				col_medians = np.average(self.tbl,0) 
-				col_effects += col_medians
-				median_col_effects = np.average(col_effects)
+				median_col_effects = np.nanmedian(col_effects)
+			#elif method == 'average':
+			#	col_medians = np.average(self.tbl,0) 
+			#	col_effects += col_medians
+			#	median_col_effects = np.average(col_effects)
 
 			self.tbl -= col_medians 
 
